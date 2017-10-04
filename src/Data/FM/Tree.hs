@@ -3,6 +3,7 @@ module Data.FM.Tree where
 -- Module of Feature Tree representation and operations
 
 import Data.FM.Feature
+
 import Data.Tree
 
 
@@ -16,9 +17,7 @@ type FeatureTree = Tree Feature
                      (map (\s -> Node (Feature s BasicFeature Optional) []) fs)
 
 
--- (<+>) :: Doc -> Doc -> Doc
--- (<+>) :: Feature -> FeatureList -> FeatureTree
 
 
 -- Tree Representation example
---let fm01 = Node (Feature "iris" OrFeature Mandatory) [(Node (Feature "security" OrFeature Mandatory) []), (Node (Feature "persist" OrFeature Mandatory) [])]
+-- let fm01 = Node (Feature "iris" OrFeature Mandatory) [(Node (Feature "security" OrFeature Mandatory) []), (Node (Feature "persist" OrFeature Mandatory) [])]

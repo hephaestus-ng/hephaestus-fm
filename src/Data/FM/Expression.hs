@@ -1,9 +1,11 @@
 module Data.FM.Expression where
 
--- Module to convert a feature model derivation to propositional logic expression
+-- Module to reason on feature model derivations in propositional logic expressions
 
 import Test.HUnit
+
 import Data.FM.Tree
+
 
 data FeatureExp = B Bool
                 | Ref String
@@ -33,8 +35,8 @@ p .=> q = Or (Not p) q
 (<=>) :: FeatureExp -> FeatureExp -> FeatureExp
 p <=> q = And (Or (Not p) q) (Or p (Not q))
 
--- (/\) :: FeatureExp -> FeatureExp -> FeatureExp
--- p /\ q = And p q
+(/\) :: FeatureExp -> FeatureExp -> FeatureExp
+p /\ q = And p q
 --
 -- (\/) :: FeatureExp -> FeatureExp -> FeatureExp
 -- p \/ q = Or p q

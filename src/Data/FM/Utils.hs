@@ -2,27 +2,39 @@ module Data.FM.Utils where
 
 -- Module for helper functions to auxiliate reasoning of feature models
 
+-- import Data.Tree.Pretty
+
 import Data.FM.Tree
 import Data.FM.Feature
 import Data.Tree
+-- import Data.Maybe
 
 type StringTree = Tree String
 
 printFMtree :: FeatureTree -> [String]
 printFMtree ft = map (featureName) (flatten ft)
 
-transformFeatureTree :: FeatureTree -> StringTree
-transformFeatureTree (Node a []) = Node (featureName a) []
-transformFeatureTree (Node a f)  = Node (featureName a) (transformFeatureTree f)
+
+-- buildFeatureNameTree :: [Feature] -> StringTree
+-- buildFeatureNameTree fs = case fs of
+--     []     -> Node "" []
+--     (f:fs) -> Node (featureName f) (buildFeatureNameTree fs)
 
 
--- showFeatureTree t = putStr . drawTree t
+-- transformFeatureTree :: FeatureTree -> Tree String
+-- transformFeatureTree (Node a []) = Node (featureName a) []
+-- transformFeatureTree (Node a f)  = Node (featureName a) (transformFeatureTree f)
+-- transformFeatureTree f = case f of
+--     (Node s []) -> Node (featureName s) []
+--     (Node s sf) -> Node (featureName s) (transformFeatureTree f:sf)
 
--- transformFeatureTree :: FeatureTree -> FeatureTree
+
+-- showFeatureTree t = putStrLn $ drawTree t
 
 
 
---let fm01 = Node (Feature "iris" OrFeature Mandatory) [(Node (Feature "security" OrFeature Mandatory) []), (Node (Feature "persist" OrFeature Mandatory) [])]
+
+-- let fm01 = Node (Feature "iris" OrFeature Mandatory) [(Node (Feature "security" OrFeature Mandatory) []), (Node (Feature "persist" OrFeature Mandatory) [])]
 
 
 

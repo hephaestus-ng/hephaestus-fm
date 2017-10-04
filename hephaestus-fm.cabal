@@ -2,12 +2,12 @@ name:                hephaestus-fm
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/hephaestus-fm#readme
+homepage:            https://github.com/hephaestus-pl/hephaestus-fm#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Rodrigo Bonifacio & Thiago Figueiredo
 maintainer:          thiagofigueiredo777@gmail.com
-copyright:           2017 Author name here
+copyright:           C&C
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
