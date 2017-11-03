@@ -1,5 +1,3 @@
-{-# LANGUAGE TemplateHaskell #-}
-
 module Test.FM.FeatureTest where
 
 import Test.HUnit

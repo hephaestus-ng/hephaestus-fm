@@ -1,11 +1,18 @@
-[1 of 2] Compiling Main             ( /tmp/stack14665/distributive-0.5.3/Setup.lhs, /tmp/stack14665/distributive-0.5.3/.stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/setup/Main.o )
-[2 of 2] Compiling StackSetupShim   ( /home/thi4go/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /tmp/stack14665/distributive-0.5.3/.stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/setup/StackSetupShim.o )
-Linking /tmp/stack14665/distributive-0.5.3/.stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/setup/setup ...
+[1 of 3] Compiling Warning          ( Warning.hs, C:\Users\Pichau\AppData\Local\Temp\stack12012\distributive-0.5.3\.stack-work\dist\ca59d0ab\setup\Warning.o )
+[2 of 3] Compiling Main             ( C:\Users\Pichau\AppData\Local\Temp\stack12012\distributive-0.5.3\Setup.lhs, C:\Users\Pichau\AppData\Local\Temp\stack12012\distributive-0.5.3\.stack-work\dist\ca59d0ab\setup\Main.o )
+
+C:\Users\Pichau\AppData\Local\Temp\stack12012\distributive-0.5.3\Setup.lhs:24:1: warning: [-Wdeprecations]
+    Module `Warning':
+      You are configuring this package without cabal-doctest installed.
+      The doctests test-suite will not work as a result.
+      To fix this, install cabal-doctest before configuring.
+[3 of 3] Compiling StackSetupShim   ( C:\sr\setup-exe-src\setup-shim-Z6RU0evB.hs, C:\Users\Pichau\AppData\Local\Temp\stack12012\distributive-0.5.3\.stack-work\dist\ca59d0ab\setup\StackSetupShim.o )
+Linking C:\Users\Pichau\AppData\Local\Temp\stack12012\distributive-0.5.3\.stack-work\dist\ca59d0ab\setup\setup.exe ...
 Configuring distributive-0.5.3...
 Building distributive-0.5.3...
 Preprocessing library distributive-0.5.3...
-[1 of 2] Compiling Data.Distributive ( src/Data/Distributive.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Distributive.o )
-[2 of 2] Compiling Data.Distributive.Generic ( src/Data/Distributive/Generic.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Distributive/Generic.o )
+[1 of 2] Compiling Data.Distributive ( src\Data\Distributive.hs, .stack-work\dist\ca59d0ab\build\Data\Distributive.o )
+[2 of 2] Compiling Data.Distributive.Generic ( src\Data\Distributive\Generic.hs, .stack-work\dist\ca59d0ab\build\Data\Distributive\Generic.o )
 Installing library in
-/home/thi4go/.stack/snapshots/x86_64-linux-nopie/lts-9.1/8.0.2/lib/x86_64-linux-ghc-8.0.2/distributive-0.5.3-IX4kyVcHAyoH4uFYrsjY1R
+C:\sr\snapshots\6dde1a60\lib\x86_64-windows-ghc-8.0.2\distributive-0.5.3-IX4kyVcHAyoH4uFYrsjY1R
 Registering distributive-0.5.3...

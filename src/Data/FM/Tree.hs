@@ -3,28 +3,13 @@ module Data.FM.Tree where
 -- Module of Feature Tree representation and operations
 
 import Control.Lens
-import Control.Zipper
+-- import Control.Zipper
 import Data.FM.Feature
 import Data.Tree
 import Data.Tree.Lens
+import Data.Tree.Pretty
 
 type FeatureTree = Tree Feature
-
-
-featureTreeToString :: FeatureTree -> Tree String
-featureTreeToString (Node f [])     = Node (view name f) []
-featureTreeToString (Node f (x:xs)) = Node (view name f)
-                                       (map (\x -> featureTreeToString x) (x:xs))
-
-
-showFeatureTree t = putStrLn $ drawTree t
-
--- usar monad Maybe?
--- hasFeature :: String -> FeatureTree -> Bool
--- hasFeature f (Node t []) = False
--- hasFeature f (Node t ts) =
---     if f == t.name then True
---     else map (\b -> hasFeature f b) (view branches ts)
 
 
 -- COMBINATOR LIBRARY --
@@ -39,17 +24,20 @@ showFeatureTree t = putStrLn $ drawTree t
 
 
 fm01 = Node (Feature "iris" BasicFeature Mandatory) [
-          (Node (Feature "security" OrFeature Mandatory) [
-             (Node (Feature "sha-256" BasicFeature Optional) []),
-             (Node (Feature "RSA" BasicFeature Optional) [])
-          ]),
-          (Node (Feature "persist" AltFeature Mandatory) [
-             (Node (Feature "SQL" BasicFeature Optional) []),
-             (Node (Feature "NoSQL" BasicFeature Optional) [])
-          ])
-         ]
+         (Node (Feature "security" OrFeature Mandatory) [
+            (Node (Feature "sha-256" BasicFeature Optional) []),
+            (Node (Feature "RSA" BasicFeature Optional) [])
+         ]),
+         (Node (Feature "persist" AltFeature Mandatory) [
+            (Node (Feature "SQL" BasicFeature Optional) []),
+            (Node (Feature "NoSQL" BasicFeature Optional) [])
+         ])
+        ]
 
 
-zipperTree = zipper fm01
--- Tree Representation example
--- let fm01 = Node (Feature "iris" OrFeature Mandatory) [(Node (Feature "security" OrFeature Mandatory) []), (Node (Feature "persist" OrFeature Mandatory) [])]
+-- usar monad Maybe?
+-- hasFeature :: String -> FeatureTree -> Bool
+-- hasFeature f (Node t [])     = False
+-- hasFeature f (Node t (x:xs)) =
+--     if (f == (view name t)) then True
+--     else map (\x -> hasFeature f x) (x:xs)
