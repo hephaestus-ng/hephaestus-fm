@@ -9,15 +9,15 @@ import Control.Lens
 type Required = Bool
 
 data FeatureGroup = BasicFeature | OrFeature | AltFeature
- deriving(Show)
+ deriving(Show, Eq)
 
 data FeatureType = Mandatory | Optional
- deriving(Show)
+ deriving(Show, Eq)
 
 
 data Feature = Feature {
     _name   :: String,
     _group  :: FeatureGroup,
     _typeF  :: FeatureType
-} deriving(Show)
+} deriving(Show, Eq)
 makeLenses ''Feature

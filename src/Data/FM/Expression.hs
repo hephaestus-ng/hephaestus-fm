@@ -29,15 +29,18 @@ eval (Not exp1) pc      = not (eval exp1 pc)
 -- todo: convert feature tree to a propositional logic expression list, for validation
 featureTreeToExp :: FeatureTree -> [FeatureExp]
 featureTreeToExp (Node f (x:xs)) = case (group f) of
+
     BasicFeature -> map (convert f) (map (\(Node f _) -> f) (x:xs))
+
     OrFeature    -> (Ref (name f) .=> foldr Or (B False) (map (\(Node f _) -> Ref (name f))(x:xs)))
                     : [(Ref (name c)) .=> Ref (name f) | (Node c _) <- (x:xs)]
+
     AltFeature   -> (Ref (name f) .=> foldr xor (B False) (map (\(Node f _) -> Ref (name f))(x:xs)))
                     : [(Ref (name c)) .=> Ref (name f) | (Node c _) <- (x:xs)]
 
 
 convert feature child =
-    case (typeF child) of
+    case (view typeF child) of
         Mandatory -> Ref (name feature) <=> Ref (name child)
         Optional  -> Ref (name child) .=> Ref (name feature)
 

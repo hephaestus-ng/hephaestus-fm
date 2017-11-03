@@ -11,9 +11,9 @@ import Control.Lens
 feature01 = Feature "Iris" BasicFeature Mandatory
 
 
-test01 = TestCase (assertEqual "Testing name lens reference"  $ view name feature01 $ "Iris")
-test02 = TestCase (assertEqual "Testing group lens reference" $ view name feature01 $ BasicFeature)
-test03 = TestCase (assertEqual "Testing type lens reference"  $ view name feature01 $ Mandatory)
+test01 = TestCase (assertEqual "Testing name lens reference"  (view name feature01) "Iris")
+test02 = TestCase (assertEqual "Testing group lens reference" (view group feature01) BasicFeature)
+test03 = TestCase (assertEqual "Testing type lens reference"  (view typeF feature01) Mandatory)
 
 tests = TestList
     [

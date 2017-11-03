@@ -9,7 +9,6 @@ import Data.FM.Feature
 import Data.FM.Tree
 
 
-
 fm01 = Node (Feature "iris" BasicFeature Mandatory) [
              (Node (Feature "security" OrFeature Mandatory) [
                 (Node (Feature "sha-256" BasicFeature Optional) []),
