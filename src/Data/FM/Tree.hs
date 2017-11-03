@@ -11,7 +11,13 @@ import Data.Tree.Lens
 type FeatureTree = Tree Feature
 
 
+featureTreeToString :: FeatureTree -> Tree String
+featureTreeToString (Node f [])     = Node (view name f) []
+featureTreeToString (Node f (x:xs)) = Node (view name f)
+                                       (map (\x -> featureTreeToString x) (x:xs))
 
+
+showFeatureTree t = putStrLn $ drawTree t
 
 -- usar monad Maybe?
 -- hasFeature :: String -> FeatureTree -> Bool
@@ -23,6 +29,7 @@ type FeatureTree = Tree Feature
 
 -- COMBINATOR LIBRARY --
 ------------------------
+
 -- Creates an OrFeature whose children are only leafs
 -- ex.: (<+>) ("persistence", Mandatory) ["sql", "nosql"]
 (<+>) :: (String, FeatureType) -> [String] -> FeatureTree
