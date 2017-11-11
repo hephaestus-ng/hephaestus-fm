@@ -1,7 +1,8 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module for defining representation of Feature structures
 module Data.FM.Feature where
+
+-- Module for defining representation of Feature structures
 
 import Control.Lens
 

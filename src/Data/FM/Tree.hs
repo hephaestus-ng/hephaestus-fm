@@ -3,7 +3,6 @@ module Data.FM.Tree where
 -- Module of Feature Tree representation and operations
 
 import Control.Lens
--- import Control.Zipper
 import Data.FM.Feature
 import Data.Tree
 import Data.Tree.Lens
@@ -23,21 +22,22 @@ type FeatureTree = Tree Feature
 
 
 
+
+
+-- Tree for testing porpuse
 fm01 = Node (Feature "iris" BasicFeature Mandatory) [
          (Node (Feature "security" OrFeature Mandatory) [
-            (Node (Feature "sha-256" BasicFeature Optional) []),
-            (Node (Feature "RSA" BasicFeature Optional) [])
+            (Node (Feature "sha-256" BasicFeature Mandatory) []),
+            (Node (Feature "RSA" BasicFeature Mandatory) [])
          ]),
          (Node (Feature "persist" AltFeature Mandatory) [
-            (Node (Feature "SQL" BasicFeature Optional) []),
-            (Node (Feature "NoSQL" BasicFeature Optional) [])
+            (Node (Feature "SQL" AltFeature Mandatory) [
+              (Node (Feature "PostgreSQL" BasicFeature Optional)),
+              (Node (Feature "MySQL" BasicFeature Optional)),
+              (Node (Feature "LiteSQL" BasicFeature Optional))
+            ]),
+            (Node (Feature "NoSQL" BasicFeature Mandatory) [
+              (Node (Feature "MongoDB" BasicFeature Mandatory))
+            ])
          ])
         ]
-
-
--- usar monad Maybe?
--- hasFeature :: String -> FeatureTree -> Bool
--- hasFeature f (Node t [])     = False
--- hasFeature f (Node t (x:xs)) =
---     if (f == (view name t)) then True
---     else map (\x -> hasFeature f x) (x:xs)
