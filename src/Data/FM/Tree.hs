@@ -32,12 +32,12 @@ fm01 = Node (Feature "iris" BasicFeature Mandatory) [
          ]),
          (Node (Feature "persist" AltFeature Mandatory) [
             (Node (Feature "SQL" AltFeature Mandatory) [
-              (Node (Feature "PostgreSQL" BasicFeature Optional)),
-              (Node (Feature "MySQL" BasicFeature Optional)),
-              (Node (Feature "LiteSQL" BasicFeature Optional))
+              (Node (Feature "PostgreSQL" BasicFeature Optional) []),
+              (Node (Feature "MySQL" BasicFeature Optional) []),
+              (Node (Feature "LiteSQL" BasicFeature Optional) [])
             ]),
             (Node (Feature "NoSQL" BasicFeature Mandatory) [
-              (Node (Feature "MongoDB" BasicFeature Mandatory))
+              (Node (Feature "MongoDB" BasicFeature Mandatory) [])
             ])
          ])
         ]

@@ -17,6 +17,7 @@ data FeatureExp = B Bool
                 -- | Tuple (FeatureExp, [FeatureExp])
     deriving(Show, Eq)
 
+
 type ProductConfiguration = [String]
 
 
