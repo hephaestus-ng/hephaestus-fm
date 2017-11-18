@@ -1,11 +1,11 @@
-module Data.FM.SAT where
+module Data.FM.SAT (satSolver) where
 
 -- Module for SAT solving our FM propositional logic expressions
 
 import Data.FM.Feature
 import Data.FM.Tree
 import Data.FM.Expression
-import Data.FM.Utils
+import Data.FM.FeatureModel
 
 --------------------------------------------------------------
 ----------------- External SAT library -----------------------
@@ -23,13 +23,16 @@ import Data.FM.Utils
 --   And
 --------------------------------------------------------------
 
+--------------------------------------------------------------
+--------------- Native implementation ------------------------
 
 import Control.Applicative ((<|>))
 
---TODO: Optimizations by implementing DPLL algorithm, and passing our
--- expresisons to a Conjunctive Normal Form (CNF)
---------------------------------------------------------------
---------------- Native implementation ------------------------
+--TODO:
+-- [ ] - Optimizations by implementing DPLL algorithm, and passing our
+--       expresisons to a Conjunctive Normal Form (CNF)
+
+
 
 -- Basic algorithm by backtracking search, following these steps:
 -- 1. Find a variable in the constraint expression that hasn't been assigned (a free variable).
@@ -110,3 +113,8 @@ satisfiable expr = case findFreeVariable expr of
       let trueGuess  = simplify (guessVariable r True expr)
           falseGuess = simplify (guessVariable r False expr)
       in satisfiable trueGuess || satisfiable falseGuess
+
+
+satSolver :: FeatureModel -> Bool
+satSolver fm =
+    let expr = foldr And (B True) (fmToFeatureExpressions fm) in satisfiable expr

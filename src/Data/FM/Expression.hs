@@ -31,15 +31,17 @@ eval (Not exp1) pc      = not (eval exp1 pc)
 
 -- todo: convert feature tree to a propositional logic expression list, for validation
 featureTreeToExp :: FeatureTree -> [FeatureExp]
-featureTreeToExp (Node f (x:xs)) = case (view group f) of
+featureTreeToExp (Node f [])     = []
+featureTreeToExp (Node f (x:xs)) = (featureTreeToExp' f (x:xs)) ++ concatMap featureTreeToExp (x:xs)
+    where
+        featureTreeToExp' f (x:xs) = case (view group f) of
+            BasicFeature -> map (convert f) (map (\(Node f _) -> f) (x:xs))
 
-    BasicFeature -> map (convert f) (map (\(Node f _) -> f) (x:xs))
+            OrFeature    -> (Ref (view name f) .=> foldr Or (B False) (map (\(Node f _) -> Ref (view name f)) (x:xs)))
+                            : [(Ref (view name c)) .=> Ref (view name f) | (Node c _) <- (x:xs)]
 
-    OrFeature    -> (Ref (view name f) .=> foldr Or (B False) (map (\(Node f _) -> Ref (view name f)) (x:xs)))
-                    : [(Ref (view name c)) .=> Ref (view name f) | (Node c _) <- (x:xs)]
-
-    AltFeature   -> (Ref (view name f) .=> foldr xor (B False) (map (\(Node f _) -> Ref (view name f)) (x:xs)))
-                    : [(Ref (view name c)) .=> Ref (view name f) | (Node c _) <- (x:xs)]
+            AltFeature   -> (Ref (view name f) .=> foldr xor (B False) (map (\(Node f _) -> Ref (view name f)) (x:xs)))
+                            : [(Ref (view name c)) .=> Ref (view name f) | (Node c _) <- (x:xs)]
 
 
 convert feature child =

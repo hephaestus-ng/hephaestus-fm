@@ -7,6 +7,7 @@ import Data.FM.Feature
 import Data.Tree
 import Data.Tree.Lens
 import Data.Tree.Pretty
+import Data.Tree.Zipper
 
 type FeatureTree = Tree Feature
 
@@ -22,10 +23,17 @@ type FeatureTree = Tree Feature
 
 
 
+featureTreeToString :: FeatureTree -> Tree String
+featureTreeToString (Node f [])     = Node (view name f) []
+featureTreeToString (Node f (x:xs)) = Node (view name f)
+                                    (map (\x -> featureTreeToString x) (x:xs))
 
+
+printFeatureTree  t = putStrLn $ drawTree (featureTreeToString t)
+pprintFeatureTree t = putStrLn $ drawVerticalTree (featureTreeToString t)
 
 -- Tree for testing porpuse
-fm01 = Node (Feature "iris" BasicFeature Mandatory) [
+ft02 = Node (Feature "iris" BasicFeature Mandatory) [
          (Node (Feature "security" OrFeature Mandatory) [
             (Node (Feature "sha-256" BasicFeature Mandatory) []),
             (Node (Feature "RSA" BasicFeature Mandatory) [])

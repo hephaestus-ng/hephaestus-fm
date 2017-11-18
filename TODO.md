@@ -5,7 +5,8 @@
 
 [ ] - SAT solver
 
-
+testes
+limpar código
 
 
 DÚVIDAS
