@@ -21,12 +21,12 @@ data FeatureExp = B Bool
 type ProductConfiguration = [String]
 
 
-eval :: FeatureExp -> ProductConfiguration -> Bool
-eval (B b) _            = b
-eval (Ref s) pc         = s `elem` pc
-eval (And exp1 exp2) pc = (eval exp1 pc) && (eval exp2 pc)
-eval (Or exp1 exp2) pc  = (eval exp1 pc) || (eval exp2 pc)
-eval (Not exp1) pc      = not (eval exp1 pc)
+-- eval :: FeatureExp -> ProductConfiguration -> Bool
+-- eval (B b) _            = b
+-- eval (Ref s) pc         = s `elem` pc
+-- eval (And exp1 exp2) pc = (eval exp1 pc) && (eval exp2 pc)
+-- eval (Or exp1 exp2) pc  = (eval exp1 pc) || (eval exp2 pc)
+-- eval (Not exp1) pc      = not (eval exp1 pc)
 
 
 -- todo: convert feature tree to a propositional logic expression list, for validation

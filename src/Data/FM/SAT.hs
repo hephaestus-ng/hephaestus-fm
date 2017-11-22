@@ -7,30 +7,7 @@ import Data.FM.Tree
 import Data.FM.Expression
 import Data.FM.FeatureModel
 
---------------------------------------------------------------
------------------ External SAT library -----------------------
----------------- (incremental sat solver)---------------------
-
--- import Data.Boolean.SatSolver
-
--- type BooleanFormula = [Boolean]
-
--- fmSAT = newSatSolver
-
--- fmExpToBoolFormula :: [FeatureExp] -> BooleanFormula
--- fmExpToBoolFormula (x:xs) = case x of
---   Or
---   And
---------------------------------------------------------------
-
---------------------------------------------------------------
---------------- Native implementation ------------------------
-
 import Control.Applicative ((<|>))
-
---TODO:
--- [ ] - Optimizations by implementing DPLL algorithm, and passing our
---       expresisons to a Conjunctive Normal Form (CNF)
 
 
 
@@ -43,7 +20,6 @@ import Control.Applicative ((<|>))
 -- then undo the last assignment, and assign the opposite value.
 
 
--- Step 1:
 -- <|> is used to choose the first Just we encounter
 findFreeVariable :: FeatureExp -> Maybe String
 findFreeVariable (B _)     = Nothing
@@ -52,7 +28,7 @@ findFreeVariable (Not p)   = findFreeVariable p
 findFreeVariable (And p q) = findFreeVariable p <|> findFreeVariable q
 findFreeVariable (Or p q)  = findFreeVariable p <|> findFreeVariable q
 
--- Step 2:
+
 guessVariable :: String -> Bool -> FeatureExp -> FeatureExp
 guessVariable ref val expr = case expr of
     Ref s   -> if s == ref then B val

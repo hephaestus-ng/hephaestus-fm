@@ -7,7 +7,6 @@ import Data.FM.Feature
 import Data.Tree
 import Data.Tree.Lens
 import Data.Tree.Pretty
-import Data.Tree.Zipper
 
 type FeatureTree = Tree Feature
 
@@ -33,19 +32,3 @@ printFeatureTree  t = putStrLn $ drawTree (featureTreeToString t)
 pprintFeatureTree t = putStrLn $ drawVerticalTree (featureTreeToString t)
 
 -- Tree for testing porpuse
-ft02 = Node (Feature "iris" BasicFeature Mandatory) [
-         (Node (Feature "security" OrFeature Mandatory) [
-            (Node (Feature "sha-256" BasicFeature Mandatory) []),
-            (Node (Feature "RSA" BasicFeature Mandatory) [])
-         ]),
-         (Node (Feature "persist" AltFeature Mandatory) [
-            (Node (Feature "SQL" AltFeature Mandatory) [
-              (Node (Feature "PostgreSQL" BasicFeature Optional) []),
-              (Node (Feature "MySQL" BasicFeature Optional) []),
-              (Node (Feature "LiteSQL" BasicFeature Optional) [])
-            ]),
-            (Node (Feature "NoSQL" BasicFeature Mandatory) [
-              (Node (Feature "MongoDB" BasicFeature Mandatory) [])
-            ])
-         ])
-        ]

@@ -9,11 +9,13 @@ import Data.FM.Feature
 import Data.FM.Tree
 import Data.FM.Expression
 
+
 data FeatureModel = FeatureModel {
     _featureTree :: FeatureTree,
     _expressions :: [FeatureExp]
 } deriving (Show, Eq)
 makeLenses ''FeatureModel
+
 
 fmToFeatureExpressions :: FeatureModel -> [FeatureExp]
 fmToFeatureExpressions fm = featureTreeToExp (view featureTree fm)

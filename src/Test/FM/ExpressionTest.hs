@@ -7,6 +7,27 @@ import Data.FM.Feature
 import Data.FM.Tree
 import Data.Tree
 
+
+ft01 = Node (Feature "iris" BasicFeature Mandatory) [
+             (Node (Feature "security" OrFeature Mandatory) [
+                (Node (Feature "sha-256" BasicFeature Optional) []),
+                (Node (Feature "RSA" BasicFeature Optional) [])
+             ]),
+             (Node (Feature "persist" AltFeature Mandatory) [
+                (Node (Feature "SQL" BasicFeature Optional) []),
+                (Node (Feature "NoSQL" BasicFeature Optional) [])
+             ])
+            ]
+
+
+ft01expr = featureTreeToExp ft01
+
+
+
+
+
+
+
 evalTest :: FeatureExp -> Bool
 evalTest (B b)           = b
 evalTest (And exp1 exp2) = (evalTest exp1) && (evalTest exp2)
