@@ -47,7 +47,7 @@ fm02 = FeatureModel ft01 [Not (Ref "iris")]
 
 fm03 = FeatureModel ft01 [Not (Ref "persist")]
 
-fm04 = FeatureModel ft01 [And (Not (Ref "SQL")) (Ref "NoSQL")]
+fm04 = FeatureModel ft01 [And (Not (Ref "SQL")) (Not (Ref "NoSQL"))]
 
 
 test01 = TestCase (assertEqual "SAT - satisfiable"

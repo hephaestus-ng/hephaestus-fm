@@ -44,10 +44,10 @@ featureTreeToExp (Node f (x:xs)) = (featureTreeToExp' f (x:xs)) ++ concatMap fea
                             : [(Ref (view name c)) .=> Ref (view name f) | (Node c _) <- (x:xs)]
 
 
-convert feature child =
+convert parent child =
     case (view typeF child) of
-        Mandatory -> Ref (view name feature) <=> Ref (view name child)
-        Optional  -> Ref (view name child) .=> Ref (view name feature)
+        Mandatory -> Ref (view name parent) <=> Ref (view name child)
+        Optional  -> Ref (view name child) .=> Ref (view name parent)
 
 
 
@@ -73,10 +73,3 @@ choose fs n = fs !! n
 chooseMany :: [FeatureExp] -> Int -> FeatureExp
 chooseMany fs 0 = B True
 chooseMany fs n = And (choose fs n) (chooseMany fs (n-1))
-
-
--- tc01 = TestCase (assertEqual "test for exp eval" (eval $ (B True) <=> (B True) /\ (B False) .=> (B True)) True)
-
-
-
--- ["iris" <=> "persistence", (Or $ "nosql" => "persistence" "sql" => "persistence") ,]

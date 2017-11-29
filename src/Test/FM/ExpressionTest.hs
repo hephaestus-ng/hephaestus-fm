@@ -27,7 +27,6 @@ ft01expr = featureTreeToExp ft01
 
 
 
-
 evalTest :: FeatureExp -> Bool
 evalTest (B b)           = b
 evalTest (And exp1 exp2) = (evalTest exp1) && (evalTest exp2)
