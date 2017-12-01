@@ -15,11 +15,18 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
+  exposed-modules:     Lib,
+                       Data.FM.Feature,
+                       Data.FM.Tree,
+                       Data.FM.Expression,
+                       Data.FM.FeatureModel,
+                       Data.FM.SAT,
+                       Data.FM.Utils
   build-depends:       base >= 4.7 && < 5,
                        pretty-tree,
-                       incremental-sat-solver,
-                       lens
+                       lens,
+                       containers,
+                       HUnit
   default-language:    Haskell2010
 
 executable hephaestus-fm-exe
@@ -33,12 +40,19 @@ executable hephaestus-fm-exe
 test-suite hephaestus-fm-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
+  exposed-modules:     Test.FM.ExpressionTest,
+                       Test.FM.FeatureTest,
+                       Test.FM.TreeTest,
+                       Test.FM.FeatureModelTest
   main-is:             Spec.hs
-  build-depends:       base
-                     , hephaestus-fm
+  build-depends:       base,
+                       hephaestus-fm,
+                       lens,
+                       containers,
+                       HUnit
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/hephaestus-fm
+  location: https://github.com/hephaestus-pl/hephaestus-fm

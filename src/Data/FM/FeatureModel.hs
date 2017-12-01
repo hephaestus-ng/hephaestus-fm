@@ -18,11 +18,12 @@ makeLenses ''FeatureModel
 
 
 fmToFeatureExpressions :: FeatureModel -> [FeatureExp]
-fmToFeatureExpressions fm = featureTreeToExp (view featureTree fm)
-                        ++ (view expressions fm)
-                        ++ [Ref (view name $ view root $ view featureTree fm)]
+fmToFeatureExpressions fm =
+    featureTreeToExp (view featureTree fm)
+    ++ (view expressions fm)
+    ++ [Ref (view name $ view root $ view featureTree fm)]
 
 
 
-validateDerivationTree :: FeatureTree -> FeatureTree -> Bool
-validateDerivationTree sourceTree derivTree = 
+-- validateDerivationTree :: FeatureTree -> FeatureTree -> Bool
+-- validateDerivationTree sourceTree derivTree =

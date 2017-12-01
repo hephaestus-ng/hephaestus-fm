@@ -52,45 +52,49 @@ simplify (Not p)  = case simplify p of
     B b -> B (not b)
     p   -> Not p
 simplify (Or p q) =
-    -- Get rid of False values, which are irrelevant.
-    let es = filter (/= B False) [simplify p, simplify q] in
-    -- If True is in a branch, the entire expression is True.
-    if B True `elem` es then B True
-    else
-      case es of
-        -- If all the values were False, this 'or' is unsatisfied.
-        []       -> B False
-        [e]      -> e
-        [e1, e2] -> Or e1 e2
+    let
+      es = filter (/= B False) [simplify p, simplify q]
+    in
+      if B True `elem` es then B True
+      else
+        case es of
+          []       -> B False
+          [e]      -> e
+          [e1, e2] -> Or e1 e2
 simplify (And p q) =
-    let es = filter (/= B True) [simplify p, simplify q] in
-    if B False `elem` es then B False
-    else
-      case es of
-        []       -> B True
-        [e]      -> e
-        [e1, e2] -> And e1 e2
+    let
+      es = filter (/= B True) [simplify p, simplify q]
+    in
+      if B False `elem` es then B False
+      else
+        case es of
+          []       -> B True
+          [e]      -> e
+          [e1, e2] -> And e1 e2
 
 
--- Building blocks for the backtracking algorithm are ready. Now we implement
--- it as a depth first search using recursion
 extractBool :: FeatureExp -> Bool
 extractBool (B b)     = b
 extractBool (Not p)   = not (extractBool p)
 extractBool (And p q) = (extractBool p) && (extractBool q)
 extractBool (Or p q)  = (extractBool p) || (extractBool q)
-extractBool _     = error "Not a boolean value"
+extractBool _         = error "Not a boolean value"
 
 
 satisfiable :: FeatureExp -> Bool
 satisfiable expr = case findFreeVariable expr of
     Nothing -> extractBool expr
     Just r  ->
-      let trueGuess  = simplify (guessVariable r True expr)
-          falseGuess = simplify (guessVariable r False expr)
-      in satisfiable trueGuess || satisfiable falseGuess
+      let
+        trueGuess  = simplify (guessVariable r True expr)
+        falseGuess = simplify (guessVariable r False expr)
+      in
+        satisfiable trueGuess || satisfiable falseGuess
 
 
 satSolver :: FeatureModel -> Bool
 satSolver fm =
-    let expr = foldr And (B True) (fmToFeatureExpressions fm) in satisfiable expr
+    let
+      expr = foldr And (B True) (fmToFeatureExpressions fm)
+    in
+      satisfiable expr

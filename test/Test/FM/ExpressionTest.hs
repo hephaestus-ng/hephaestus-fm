@@ -83,4 +83,4 @@ operatorsTests = TestList
         TestLabel "xor" test12
     ]
 
-runOperatorsTests = runTestTT operatorsTests
+runExpressionTests = runTestTT operatorsTests
