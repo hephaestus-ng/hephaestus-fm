@@ -2,29 +2,31 @@ module Data.FM.Utils where
 
 -- Module for helper functions to auxiliate reasoning of feature models
 
+import Control.Lens
+import Data.Tree
 import Data.FM.Tree
 import Data.FM.Feature
-import Data.Tree
-
-type StringTree = Tree String
-
-printFMtree :: FeatureTree -> [String]
-printFMtree ft = map (featureName) (flatten ft)
-
-transformFeatureTree :: FeatureTree -> StringTree
-transformFeatureTree (Node a []) = Node (featureName a) []
-transformFeatureTree (Node a f)  = Node (featureName a) (transformFeatureTree f)
+import Data.Tree.Pretty
 
 
--- showFeatureTree t = putStr . drawTree t
+featureTreeToString :: FeatureTree -> Tree String
+featureTreeToString (Node f [])     = Node (view name f) []
+featureTreeToString (Node f (x:xs)) = Node (view name f)
+                                       (map (\x -> featureTreeToString x) (x:xs))
 
--- transformFeatureTree :: FeatureTree -> FeatureTree
 
+printFeatureTree  t = putStrLn $ drawTree (featureTreeToString t)
+pprintFeatureTree t = putStrLn $ drawVerticalTree (featureTreeToString t)
 
-
---let fm01 = Node (Feature "iris" OrFeature Mandatory) [(Node (Feature "security" OrFeature Mandatory) []), (Node (Feature "persist" OrFeature Mandatory) [])]
 
 
 
 -- unfoldTree function usage example
 -- let t = unfoldTree (\i -> (show i, [i`div`2..i-1]))
+
+-- usar monad Maybe?
+-- hasFeature :: String -> FeatureTree -> Bool
+-- hasFeature f (Node t [])     = False
+-- hasFeature f (Node t (x:xs)) =
+--     if (f == (view name t)) then True
+--     else map (\x -> hasFeature f x) (x:xs)
