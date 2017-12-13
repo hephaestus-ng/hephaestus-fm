@@ -3,5 +3,12 @@ import Test.FM.TreeTest
 import Test.FM.ExpressionTest
 import Test.FM.FeatureModelTest
 
-main :: IO ()
-main = putStrLn "Time to run all the test-suite"
+import Control.Monad
+import Test.HUnit.Base
+
+main :: IO Test.HUnit.Base.Counts
+-- main = runFeatureTests
+main = do
+    a    <- runFeatureTests
+    b    <- runFeatureModelTests
+    return b

@@ -18,9 +18,6 @@ data FeatureExp = B Bool
     deriving(Show, Eq)
 
 
-type ProductConfiguration = [String]
-
-
 -- eval :: FeatureExp -> ProductConfiguration -> Bool
 -- eval (B b) _            = b
 -- eval (Ref s) pc         = s `elem` pc
