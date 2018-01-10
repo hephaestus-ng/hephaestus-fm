@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "C:\\Users\\Pichau\\git\\hephaestus-fm\\.stack-work\\install\\5600629f\\bin"
-libdir     = "C:\\Users\\Pichau\\git\\hephaestus-fm\\.stack-work\\install\\5600629f\\lib\\x86_64-windows-ghc-8.0.2\\hephaestus-fm-0.1.0.0-BzoirjheX0ZB6OJEKgwIRT"
+libdir     = "C:\\Users\\Pichau\\git\\hephaestus-fm\\.stack-work\\install\\5600629f\\lib\\x86_64-windows-ghc-8.0.2\\hephaestus-fm-0.1.0.0-BXBSJiwVacoGBtIg9unY6H"
 dynlibdir  = "C:\\Users\\Pichau\\git\\hephaestus-fm\\.stack-work\\install\\5600629f\\lib\\x86_64-windows-ghc-8.0.2"
 datadir    = "C:\\Users\\Pichau\\git\\hephaestus-fm\\.stack-work\\install\\5600629f\\share\\x86_64-windows-ghc-8.0.2\\hephaestus-fm-0.1.0.0"
 libexecdir = "C:\\Users\\Pichau\\git\\hephaestus-fm\\.stack-work\\install\\5600629f\\libexec"

@@ -1,18 +1,18 @@
 Configuring kan-extensions-5.0.2...
 Building kan-extensions-5.0.2...
 Preprocessing library kan-extensions-5.0.2...
-[ 1 of 12] Compiling Data.Functor.Kan.Ran ( src/Data/Functor/Kan/Ran.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Kan/Ran.o )
-[ 2 of 12] Compiling Data.Functor.Yoneda ( src/Data/Functor/Yoneda.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Yoneda.o )
-[ 3 of 12] Compiling Data.Functor.Kan.Lan ( src/Data/Functor/Kan/Lan.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Kan/Lan.o )
-[ 4 of 12] Compiling Data.Functor.Day ( src/Data/Functor/Day.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Day.o )
-[ 5 of 12] Compiling Data.Functor.Day.Curried ( src/Data/Functor/Day/Curried.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Day/Curried.o )
-[ 6 of 12] Compiling Data.Functor.Coyoneda ( src/Data/Functor/Coyoneda.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Coyoneda.o )
-[ 7 of 12] Compiling Data.Functor.Contravariant.Yoneda ( src/Data/Functor/Contravariant/Yoneda.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Contravariant/Yoneda.o )
-[ 8 of 12] Compiling Data.Functor.Contravariant.Day ( src/Data/Functor/Contravariant/Day.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Contravariant/Day.o )
-[ 9 of 12] Compiling Data.Functor.Contravariant.Coyoneda ( src/Data/Functor/Contravariant/Coyoneda.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Data/Functor/Contravariant/Coyoneda.o )
-[10 of 12] Compiling Control.Monad.Codensity ( src/Control/Monad/Codensity.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Control/Monad/Codensity.o )
-[11 of 12] Compiling Control.Comonad.Density ( src/Control/Comonad/Density.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Control/Comonad/Density.o )
-[12 of 12] Compiling Control.Monad.Co ( src/Control/Monad/Co.hs, .stack-work/dist/x86_64-linux-nopie/Cabal-1.24.2.0/build/Control/Monad/Co.o )
+[ 1 of 12] Compiling Data.Functor.Kan.Ran ( src\Data\Functor\Kan\Ran.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Kan\Ran.o )
+[ 2 of 12] Compiling Data.Functor.Yoneda ( src\Data\Functor\Yoneda.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Yoneda.o )
+[ 3 of 12] Compiling Data.Functor.Kan.Lan ( src\Data\Functor\Kan\Lan.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Kan\Lan.o )
+[ 4 of 12] Compiling Data.Functor.Day ( src\Data\Functor\Day.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Day.o )
+[ 5 of 12] Compiling Data.Functor.Day.Curried ( src\Data\Functor\Day\Curried.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Day\Curried.o )
+[ 6 of 12] Compiling Data.Functor.Coyoneda ( src\Data\Functor\Coyoneda.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Coyoneda.o )
+[ 7 of 12] Compiling Data.Functor.Contravariant.Yoneda ( src\Data\Functor\Contravariant\Yoneda.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Contravariant\Yoneda.o )
+[ 8 of 12] Compiling Data.Functor.Contravariant.Day ( src\Data\Functor\Contravariant\Day.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Contravariant\Day.o )
+[ 9 of 12] Compiling Data.Functor.Contravariant.Coyoneda ( src\Data\Functor\Contravariant\Coyoneda.hs, .stack-work\dist\ca59d0ab\build\Data\Functor\Contravariant\Coyoneda.o )
+[10 of 12] Compiling Control.Monad.Codensity ( src\Control\Monad\Codensity.hs, .stack-work\dist\ca59d0ab\build\Control\Monad\Codensity.o )
+[11 of 12] Compiling Control.Comonad.Density ( src\Control\Comonad\Density.hs, .stack-work\dist\ca59d0ab\build\Control\Comonad\Density.o )
+[12 of 12] Compiling Control.Monad.Co ( src\Control\Monad\Co.hs, .stack-work\dist\ca59d0ab\build\Control\Monad\Co.o )
 Installing library in
-/home/thi4go/Haskell/hephaestus-fm/.stack-work/install/x86_64-linux-nopie/lts-9.1/8.0.2/lib/x86_64-linux-ghc-8.0.2/kan-extensions-5.0.2-62cfNIq0VNuK9M4RvY5Zbm
+C:\Users\Pichau\git\hephaestus-fm\.stack-work\install\5600629f\lib\x86_64-windows-ghc-8.0.2\kan-extensions-5.0.2-62cfNIq0VNuK9M4RvY5Zbm
 Registering kan-extensions-5.0.2...
