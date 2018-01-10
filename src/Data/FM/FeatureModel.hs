@@ -17,13 +17,9 @@ data FeatureModel = FeatureModel {
 makeLenses ''FeatureModel
 
 
-fmToFeatureExpressions :: FeatureModel -> [FeatureExp]
-fmToFeatureExpressions fm =
-    featureTreeToExp (view featureTree fm)
-    ++ (view expressions fm)
-    ++ [Ref (view name $ view root $ view featureTree fm)]
-
-
-
--- validateDerivationTree :: FeatureTree -> FeatureTree -> Bool
--- validateDerivationTree sourceTree derivTree =
+-- Generates propositional logic expressions for a given Feature Model
+fmToFeatureExpr :: FeatureModel -> [FeatureExp]
+fmToFeatureExpr fm =
+    featureTreeToExp (view featureTree fm) ++
+    (view expressions fm) ++
+    [Ref (view name $ view root $ view featureTree fm)]

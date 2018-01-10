@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-10-03 01:48:30.5246897 UTC
+2018-01-04 15:46:06.0092198 UTC
 
-interface hephaestus-fm-0.1.0.0-BzoirjheX0ZB6OJEKgwIRT:Lib 8002
-  interface hash: 38798c69488668f35ac29572f6e0fbc6
-  ABI hash: 4f1e694b8479d9780683ebadd5907dcc
-  export-list hash: 91008121d79952a8105861441348bd93
+interface hephaestus-fm-0.1.0.0-BXBSJiwVacoGBtIg9unY6H:Lib 8002
+  interface hash: f358931112dcfd63bdeed74e18029ad7
+  ABI hash: c4ea913cfcf4811d4b198abc7a693adb
+  export-list hash: 3d21c2dad99e52023c4c4c0db24c44d2
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: eddf487925547d1f3394a6c3ce894a7d
   sig of: Nothing
@@ -13,37 +13,145 @@ interface hephaestus-fm-0.1.0.0-BzoirjheX0ZB6OJEKgwIRT:Lib 8002
   where
 exports:
   Lib.someFunc
-module dependencies:
-package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+module dependencies: Data.FM.Expression Data.FM.Feature
+                     Data.FM.FeatureModel Data.FM.SAT Data.FM.Tree Data.FM.Utils
+package dependencies: StateVar-1.1.0.4@StateVar-1.1.0.4-5dJbnTVECtEAhfJXPZKdbO
+                      adjunctions-4.3@adjunctions-4.3-DEvVH0LmqXD1X0J4AkdAs7
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      base-orphans-0.6@base-orphans-0.6-AbJ3lKVXygDCG0eeQEv8Iu
+                      bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq
+                      binary-0.8.3.0@binary-0.8.3.0-1mvfF3nK4V8Ea3FFq50ah3
+                      boxes-0.1.4@boxes-0.1.4-8r7hgbHhiwZ9TYlQbo7ovB
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      call-stack-0.1.0@call-stack-0.1.0-FYVrCPXGP9EGAuTW32963O
+                      comonad-5.0.2@comonad-5.0.2-I16Skqk4CBTKzHjIVU7STX
+                      containers-0.5.7.1@containers-0.5.7.1-E9rFikdhr2B63rLjbI8jnf
+                      contravariant-1.4@contravariant-1.4-29zF0Im431177ovfbHYCGv
+                      deepseq-1.4.2.0@deepseq-1.4.2.0
+                      distributive-0.5.3@distributive-0.5.3-IX4kyVcHAyoH4uFYrsjY1R
+                      exceptions-0.8.3@exceptions-0.8.3-ADEDRATtUrMK1JW4zMQ9U
+                      free-4.12.4@free-4.12.4-8yI92KMc71j3vAUYnj1UDs
+                      ghc-boot-th-8.0.2@ghc-boot-th-8.0.2 ghc-prim-0.5.0.0
+                      hashable-1.2.6.1@hashable-1.2.6.1-Dm5PKlfjMkn3AJwHqQ2B4I
                       integer-gmp-1.0.0.1
+                      kan-extensions-5.0.2@kan-extensions-5.0.2-62cfNIq0VNuK9M4RvY5Zbm
+                      lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA
+                      mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      prelude-extras-0.4.0.3@prelude-extras-0.4.0.3-BhL9U5k7NtGJn1itwIHt2Y
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      pretty-tree-0.1.0.0@pretty-tree-0.1.0.0-8h92cJ2lCUe36peMtpRNzl
+                      primitive-0.6.2.0@primitive-0.6.2.0-4578caNkWQ54Gt1mxLF2Yh
+                      profunctors-5.2.1@profunctors-5.2.1-B4BbsW8w2pYC7aGGWnPZo
+                      reflection-2.1.2@reflection-2.1.2-Bem12O1xFGSHr4C2Hyu1c4
+                      semigroupoids-5.2.1@semigroupoids-5.2.1-2Z0szZchSkrDAXgshF0GVy
+                      split-0.2.3.2@split-0.2.3.2-CJl40zTyCIV16Pr60nb7CT
+                      stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt
+                      template-haskell-2.11.1.0
+                      text-1.2.2.2@text-1.2.2.2-Dy1Cg1C7xcQ2kI9RwnnkSJ
+                      th-abstraction-0.2.5.0@th-abstraction-0.2.5.0-GFelpGxYcaEJTguRR8rw9b
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      transformers-compat-0.5.1.4@transformers-compat-0.5.1.4-IuFogs8HAVUJBWVNMhtssu
+                      unordered-containers-0.2.8.0@unordered-containers-0.2.8.0-6xYdN0LI7rLJ6rnWyoEXzg
+                      vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ
 orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
-family instance modules: base-4.9.1.0:Control.Applicative
-                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
-                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
-                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
-                         base-4.9.1.0:GHC.TypeLits
+         base-orphans-0.6@base-orphans-0.6-AbJ3lKVXygDCG0eeQEv8Iu:Data.Orphans
+         binary-0.8.3.0@binary-0.8.3.0-1mvfF3nK4V8Ea3FFq50ah3:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.6.1@hashable-1.2.6.1-Dm5PKlfjMkn3AJwHqQ2B4I:Data.Hashable.Generic
+         reflection-2.1.2@reflection-2.1.2-Bem12O1xFGSHr4C2Hyu1c4:Data.Reflection
+         stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         text-1.2.2.2@text-1.2.2.2-Dy1Cg1C7xcQ2kI9RwnnkSJ:Data.Text
+         text-1.2.2.2@text-1.2.2.2-Dy1Cg1C7xcQ2kI9RwnnkSJ:Data.Text.Lazy
+         text-1.2.2.2@text-1.2.2.2-Dy1Cg1C7xcQ2kI9RwnnkSJ:Data.Text.Show
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector.Fusion.Bundle
+         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector.Unboxed
+family instance modules: adjunctions-4.3@adjunctions-4.3-DEvVH0LmqXD1X0J4AkdAs7:Data.Functor.Rep
+                         base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Compose
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.Functor.Product base-4.9.1.0:Data.Functor.Sum
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Biff
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Clown
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Fix
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Flip
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Join
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Joker
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Product
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Sum
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Tannen
+                         bifunctors-5.4.2@bifunctors-5.4.2-48Df6U6e3gZs2oFGfM0Pq:Data.Bifunctor.Wrapped
+                         containers-0.5.7.1@containers-0.5.7.1-E9rFikdhr2B63rLjbI8jnf:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1-E9rFikdhr2B63rLjbI8jnf:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1-E9rFikdhr2B63rLjbI8jnf:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1-E9rFikdhr2B63rLjbI8jnf:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1-E9rFikdhr2B63rLjbI8jnf:Data.Set.Base
+                         ghc-boot-th-8.0.2@ghc-boot-th-8.0.2:GHC.LanguageExtensions.Type
+                         kan-extensions-5.0.2@kan-extensions-5.0.2-62cfNIq0VNuK9M4RvY5Zbm:Data.Functor.Day
+                         kan-extensions-5.0.2@kan-extensions-5.0.2-62cfNIq0VNuK9M4RvY5Zbm:Data.Functor.Yoneda
+                         lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA:Control.Lens.At
+                         lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA:Control.Lens.Internal.Indexed
+                         lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA:Control.Lens.Reified
+                         lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA:Control.Lens.Tuple
+                         lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA:Control.Lens.Wrapped
+                         lens-4.15.4@lens-4.15.4-LTurvoat8GY7v9jBlXy7LA:Control.Lens.Zoom
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.2.0@primitive-0.6.2.0-4578caNkWQ54Gt1mxLF2Yh:Control.Monad.Primitive
+                         primitive-0.6.2.0@primitive-0.6.2.0-4578caNkWQ54Gt1mxLF2Yh:Data.Primitive.Array
+                         profunctors-5.2.1@profunctors-5.2.1-B4BbsW8w2pYC7aGGWnPZo:Data.Profunctor.Rep
+                         tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt:Data.Tagged
+                         template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.2@text-1.2.2.2-Dy1Cg1C7xcQ2kI9RwnnkSJ:Data.Text
+                         text-1.2.2.2@text-1.2.2.2-Dy1Cg1C7xcQ2kI9RwnnkSJ:Data.Text.Lazy
+                         th-abstraction-0.2.5.0@th-abstraction-0.2.5.0-GFelpGxYcaEJTguRR8rw9b:Language.Haskell.TH.Datatype
+                         unordered-containers-0.2.8.0@unordered-containers-0.2.8.0-6xYdN0LI7rLJ6rnWyoEXzg:Data.HashMap.Base
+                         unordered-containers-0.2.8.0@unordered-containers-0.2.8.0-6xYdN0LI7rLJ6rnWyoEXzg:Data.HashSet
+                         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector
+                         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector.Primitive
+                         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector.Storable
+                         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector.Unboxed
+                         vector-0.12.0.1@vector-0.12.0.1-692PQMDMB6pIQ1uGwefDcQ:Data.Vector.Unboxed.Base
 import  -/  base-4.9.1.0:Prelude 74b3e204395920329f6de9d97206abe9
 import  -/  base-4.9.1.0:System.IO 5daf3f384209c11d9566e3409af8ec5d
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
-ae606c47ce14e136ab8be3bfd1abf83b
+import  -/  Data.FM.Expression 6c1c2181e4dc93c90763f87779e28d6e
+  exports: efc6cc43bdfab292cb55c938e17191ec
+import  -/  Data.FM.Feature f1bcf4cead17ddad20038e68575462d0
+  exports: 291ee3e7ecdd577ce306c58e2eb32ece
+import  -/  Data.FM.FeatureModel b522bea63170cba59fd9c6921be80b2e
+  exports: 8d3a59d01030b1a1ffa294b8268f0dd5
+import  -/  Data.FM.SAT e3c9ec49c02cb78d7533b7c95dac0b4f
+  exports: 59e6ae4bc2c0b28815ec960cb7152121
+import  -/  Data.FM.Tree 4e11618fd3e448165bdf2c98ce735cdb
+  exports: ecf1a189febd756c85c576b447e8dff7
+import  -/  Data.FM.Utils b82a025370e43ee6b9e649a169ac00c7
+  exports: 8adf10c61fa9ae50e3e3617c16eb23c2
+4f5dfdc32164008dbd129bb97caf028b
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module Lib.$trModule2 Lib.$trModule1) -}
-4a9edb98fee8ced71f3df361b59fa696
+295c39dbbca2a758e29596f0572b129d
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "Lib"#) -}
-dd8f878f45e8b938dd88136948b4af70
+1e7496390ade1c2f74475dfc585e60c8
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
-                   "hephaestus-fm-0.1.0.0-BzoirjheX0ZB6OJEKgwIRT"#) -}
-6d6e0ba0ef046d0acd4c67d82c568d90
+                   "hephaestus-fm-0.1.0.0-BXBSJiwVacoGBtIg9unY6H"#) -}
+b764901c46d3a5ed0a10b5117bde500a
   someFunc :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Lib.someFunc1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-d071dc23be5c6037ce2afdc5508c2942
+a6947e3b20c710e4d75986796c03f995
   someFunc1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -55,7 +163,7 @@ d071dc23be5c6037ce2afdc5508c2942
                    Lib.someFunc2
                    GHC.Types.True
                    eta) -}
-6042b262d333308843575a2c83d4dfd8
+617f4b48d010df6b8f61d8e82eed0615
   someFunc2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "someFunc"#) -}
 vectorised variables:
@@ -63,6 +171,6 @@ vectorised tycons:
 vectorised reused tycons:
 parallel variables:
 parallel tycons:
-trusted: safe
+trusted: none
 require own pkg trusted: False
 

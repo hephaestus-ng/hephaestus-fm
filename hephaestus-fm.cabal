@@ -40,7 +40,7 @@ executable hephaestus-fm-exe
 test-suite hephaestus-fm-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
-  other-modules:     Test.FM.ExpressionTest,
+  other-modules:       Test.FM.ExpressionTest,
                        Test.FM.FeatureTest,
                        Test.FM.TreeTest,
                        Test.FM.FeatureModelTest

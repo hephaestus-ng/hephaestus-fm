@@ -26,7 +26,7 @@ data FeatureExp = B Bool
 -- eval (Not exp1) pc      = not (eval exp1 pc)
 
 
--- todo: convert feature tree to a propositional logic expression list, for validation
+
 featureTreeToExp :: FeatureTree -> [FeatureExp]
 featureTreeToExp (Node f [])     = []
 featureTreeToExp (Node f (x:xs)) = (featureTreeToExp' f (x:xs)) ++ concatMap featureTreeToExp (x:xs)

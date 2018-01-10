@@ -49,10 +49,10 @@ ft04 = Node (Feature "iris" BasicFeature Mandatory) [
 --
 -- Expressions
 
-ft01expr = fmToFeatureExpressions $ FeatureModel ft01 []
-ft02expr = fmToFeatureExpressions $ FeatureModel ft02 []
-ft03expr = fmToFeatureExpressions $ FeatureModel ft03 []
-ft04expr = fmToFeatureExpressions $ FeatureModel ft04 []
+ft01expr = fmToFeatureExpr $ FeatureModel ft01 []
+ft02expr = fmToFeatureExpr $ FeatureModel ft02 []
+ft03expr = fmToFeatureExpr $ FeatureModel ft03 []
+ft04expr = fmToFeatureExpr $ FeatureModel ft04 []
 
 test01expr = TestCase (assertEqual "FM01 Expressions test"
                         ([Ref "iris"]) ft01expr)
@@ -63,6 +63,8 @@ test02expr = TestCase (assertEqual "FM02 Expressions test"
             And (Or (Not (Ref "iris")) (Ref "persist")) (Or (Ref "iris") (Not (Ref "persist"))),   -- iris <=> persist
             Ref "iris"]) ft02expr)                                                                 -- iris
 
+
+-- TODO !!!!
 test03expr = TestCase (assertEqual "FM03 Expressions test"
             ([
 

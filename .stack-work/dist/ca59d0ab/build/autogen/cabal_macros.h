@@ -7,12 +7,40 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
+/* package HUnit-1.5.0.0 */
+#define VERSION_HUnit "1.5.0.0"
+#define MIN_VERSION_HUnit(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  5 || \
+  (major1) == 1 && (major2) == 5 && (minor) <= 0)
+
 /* package base-4.9.1.0 */
 #define VERSION_base "4.9.1.0"
 #define MIN_VERSION_base(major1,major2,minor) (\
   (major1) <  4 || \
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 1)
+
+/* package containers-0.5.7.1 */
+#define VERSION_containers "0.5.7.1"
+#define MIN_VERSION_containers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  5 || \
+  (major1) == 0 && (major2) == 5 && (minor) <= 7)
+
+/* package lens-4.15.4 */
+#define VERSION_lens "4.15.4"
+#define MIN_VERSION_lens(major1,major2,minor) (\
+  (major1) <  4 || \
+  (major1) == 4 && (major2) <  15 || \
+  (major1) == 4 && (major2) == 15 && (minor) <= 4)
+
+/* package pretty-tree-0.1.0.0 */
+#define VERSION_pretty_tree "0.1.0.0"
+#define MIN_VERSION_pretty_tree(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  1 || \
+  (major1) == 0 && (major2) == 1 && (minor) <= 0)
 
 /* tool alex-3.2.1 */
 #define TOOL_VERSION_alex "3.2.1"
@@ -84,7 +112,7 @@
   (major1) == 2 && (major2) <  25 || \
   (major1) == 2 && (major2) == 25 && (minor) <= 0)
 
-#define CURRENT_COMPONENT_ID "hephaestus-fm-0.1.0.0-BzoirjheX0ZB6OJEKgwIRT"
+#define CURRENT_COMPONENT_ID "hephaestus-fm-0.1.0.0-BXBSJiwVacoGBtIg9unY6H"
 
-#define CURRENT_PACKAGE_KEY "hephaestus-fm-0.1.0.0-BzoirjheX0ZB6OJEKgwIRT"
+#define CURRENT_PACKAGE_KEY "hephaestus-fm-0.1.0.0-BXBSJiwVacoGBtIg9unY6H"
 
