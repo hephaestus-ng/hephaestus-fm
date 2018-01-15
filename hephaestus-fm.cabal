@@ -20,6 +20,7 @@ library
                        Data.FM.Tree,
                        Data.FM.Expression,
                        Data.FM.FeatureModel,
+                       Data.FM.ProductConfiguration,
                        Data.FM.SAT,
                        Data.FM.Utils
   build-depends:       base >= 4.7 && < 5,
@@ -43,7 +44,8 @@ test-suite hephaestus-fm-test
   other-modules:       Test.FM.ExpressionTest,
                        Test.FM.FeatureTest,
                        Test.FM.TreeTest,
-                       Test.FM.FeatureModelTest
+                       Test.FM.FeatureModelTest,
+                       Test.FM.ProductConfigurationTest
   main-is:             Spec.hs
   build-depends:       base,
                        hephaestus-fm,

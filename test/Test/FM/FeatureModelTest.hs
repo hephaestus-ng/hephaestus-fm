@@ -1,10 +1,11 @@
-module Data.FM.FeatureModelTest where
+module Test.FM.FeatureModelTest where
 
 import Test.HUnit
 
 import Data.Tree
 
 import Data.FM.FeatureModel
+import Data.FM.ProductConfiguration
 import Data.FM.Expression
 import Data.FM.Feature
 import Data.FM.Tree

@@ -1,4 +1,4 @@
-module Data.FM.ExpressionTest where
+module Test.FM.ExpressionTest where
 
 import Test.HUnit
 
