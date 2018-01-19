@@ -18,9 +18,6 @@ data FeatureExp = B Bool
     deriving(Show, Eq)
 
 
-type ProductConfiguration = [String]
-
-
 -- eval :: FeatureExp -> ProductConfiguration -> Bool
 -- eval (B b) _            = b
 -- eval (Ref s) pc         = s `elem` pc
@@ -29,7 +26,7 @@ type ProductConfiguration = [String]
 -- eval (Not exp1) pc      = not (eval exp1 pc)
 
 
--- todo: convert feature tree to a propositional logic expression list, for validation
+
 featureTreeToExp :: FeatureTree -> [FeatureExp]
 featureTreeToExp (Node f [])     = []
 featureTreeToExp (Node f (x:xs)) = (featureTreeToExp' f (x:xs)) ++ concatMap featureTreeToExp (x:xs)

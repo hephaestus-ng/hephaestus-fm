@@ -5,6 +5,7 @@ import Test.HUnit
 import Data.Tree
 
 import Data.FM.FeatureModel
+import Data.FM.ProductConfiguration
 import Data.FM.Expression
 import Data.FM.Feature
 import Data.FM.Tree
@@ -15,7 +16,7 @@ ft01 = Node (Feature "iris" BasicFeature Mandatory) []
 
 ft02 = Node (Feature "iris" BasicFeature Mandatory) [
         (Node (Feature "security" OrFeature Mandatory) []),
-        (Node (Feature "persists" AltFeature Mandatory) [])
+        (Node (Feature "persist" AltFeature Mandatory) [])
     ]
 
 ft03 = Node (Feature "iris" BasicFeature Mandatory) [
@@ -45,16 +46,39 @@ ft04 = Node (Feature "iris" BasicFeature Mandatory) [
             ])
          ])
         ]
+--
+--
+-- Expressions
+
+ft01expr = fmToFeatureExpr $ FeatureModel ft01 []
+ft02expr = fmToFeatureExpr $ FeatureModel ft02 []
+ft03expr = fmToFeatureExpr $ FeatureModel ft03 []
+ft04expr = fmToFeatureExpr $ FeatureModel ft04 []
+
+test01expr = TestCase (assertEqual "FM01 Expressions test"
+                        ([Ref "iris"]) ft01expr)
+
+test02expr = TestCase (assertEqual "FM02 Expressions test"
+            ([
+            And (Or (Not (Ref "iris")) (Ref "security")) (Or (Ref "iris") (Not (Ref "security"))), -- iris <=> security
+            And (Or (Not (Ref "iris")) (Ref "persist")) (Or (Ref "iris") (Not (Ref "persist"))),   -- iris <=> persist
+            Ref "iris"]) ft02expr)                                                                 -- iris
+
+
+-- TODO !!!!
+test03expr = TestCase (assertEqual "FM03 Expressions test"
+            ([
+
+            Ref "iris"]) ft03expr)
+
+--
+--
+-- SAT Solver
 
 fm01 = FeatureModel ft01 []
-fm02 = FeatureModel ft02 []
-fm03 = FeatureModel ft03 []
-fm04 = FeatureModel ft04 []
-
-fm01expr = fmToFeatureExpressions fm01
-fm02expr = fmToFeatureExpressions fm02
-fm03expr = fmToFeatureExpressions fm03
-fm04expr = fmToFeatureExpressions fm04
+fm02 = FeatureModel ft02 [Not (Ref "iris")]
+fm03 = FeatureModel ft03 [Not (Ref "security")]
+fm04 = FeatureModel ft04 [Not (Ref "persist")]
 
 test01 = TestCase (assertEqual "SAT - satisfiable"
                   True (satSolver fm01))
@@ -79,7 +103,3 @@ fm01Tests = TestList
 
 
 runFeatureModelTests = runTestTT fm01Tests
-
-------------------- FEATURE MODEL - TEST 02 -------------------
---
---

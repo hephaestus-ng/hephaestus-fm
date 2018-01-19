@@ -95,6 +95,6 @@ satisfiable expr = case findFreeVariable expr of
 satSolver :: FeatureModel -> Bool
 satSolver fm =
     let
-      expr = foldr And (B True) (fmToFeatureExpressions fm)
+      expr = foldr And (B True) (fmToFeatureExpr fm)
     in
       satisfiable expr

@@ -11,7 +11,9 @@
 -- TODO
 -------------------------------------------------------------------------------
 
-[ ] - Como validar uma derivação de features de uma Feature Model ?
+[ ] - Reescrever o SAT Solver com o novo entendimento
+
+[ ] - Gerar as expressões de modo organizado
 
 [ ] - Optimizations by implementing DPLL algorithm, and passing our expresisons to a Conjunctive Normal Form (CNF)
 
@@ -22,14 +24,14 @@
     [ ] - FeatureModel
     [ ] - SAT Solver
 
-[ ] - Limpar import de dependências desnecessárias
+[ ] - Limpar import de dependências desnecessárias em cada módulo
 
 [ ] - I/O
 
 [ ] - escrever testes para verificar a corretude da featureTreeToExp, e das
       expressões geradas
 
-[ ] -Pesquisar sobre pacote Data.Tree.Zipper
+
 
 
 
