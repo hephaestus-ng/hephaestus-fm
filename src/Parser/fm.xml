@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and mandatory="true" name="iris">
+				<and mandatory="true" name="services">
+					<feature mandatory="true" name="sendMessage"/>
+					<feature mandatory="true" name="receiveMessage"/>
+				</and>
+				<feature name="addressBook"/>
+				<alt mandatory="true" name="persistence">
+					<feature mandatory="true" name="relational"/>
+					<feature mandatory="true" name="nonRelational"/>
+				</alt>
+				<feature name="tagging"/>
+				<alt mandatory="true" name="ui">
+					<feature mandatory="true" name="console"/>
+					<feature abstract="true" mandatory="true" name="gui"/>
+				</alt>
+				<alt name="search">
+					<feature mandatory="true" name="simpleSearch"/>
+					<feature mandatory="true" name="advancedSearch"/>
+				</alt>
+				<or name="security">
+					<feature mandatory="true" name="sign"/>
+					<feature mandatory="true" name="verify"/>
+					<feature mandatory="true" name="encrypt"/>
+					<feature mandatory="true" name="decrypt"/>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<eq>
+					<var>sign</var>
+					<var>verify</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>encrypt</var>
+					<var>decrypt</var>
+				</eq>
+			</rule>
+			<rule>
+				<imp>
+					<var>advancedSearch</var>
+					<var>nonRelational</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>simpleSearch</var>
+					<var>relational</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

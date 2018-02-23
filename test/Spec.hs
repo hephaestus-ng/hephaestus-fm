@@ -13,4 +13,4 @@ main = do
     a    <- runFeatureTests
     b    <- runFeatureModelTests
     c    <- runProductConfigurationTests
-    return b
+    return c
