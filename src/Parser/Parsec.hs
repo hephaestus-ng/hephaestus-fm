@@ -14,47 +14,10 @@ import Data.FM.Feature
 import Data.FM.Expression
 
 
-xmlFMDef :: LanguageDef st
-xmlFMDef = LanguageDef
-          { commentStart    = ""
-          , commentEnd      = ""
-          , commentLine     = ""
-          , nestedComments  = False
-          , identStart      = letter <|> char '_'
-          , identLetter     = alphaNum <|> oneOf "_'"
-          , opStart         = opLetter emptyDef
-          , opLetter        = oneOf ""
-          , reservedOpNames = []
-          , reservedNames   = ["<featureModel", "<struct>", 
-                               "<and", "<alt", "<or",
-                               "<feature", "<constraints>",
-                               "<rule>", "<var>", "<eq>", 
-                               "<imp>"]
-          , caseSensitive   = True
-          }
+blanks = many (space <|> newline) 
 
-
-lexer = makeTokenParser xmlFMDef
-
-parseReservedNames = reserved lexer
-parseString        = stringLiteral lexer
-
-main = parseFromFile parseFIDE "fm.ide" >>= \result ->
-       case result of
-         Left err -> print err
-         Right fm -> print (show fm) 
-  
-
-         
-parseFIDE :: Parsec String () String
-parseFIDE =
-  do
-    s      <- parseString
-    result <- parseReservedNames s
-    return (s)         
-{- 
-parseFIDE :: Parsec String () FeatureModel
-parseFIDE =
+parseFeatureIDE :: Parsec String () FeatureModel
+parseFeatureIDE =
   string "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>" >> blanks >> 
   string "<featureModel chosenLayoutAlgorithm=\"1\">"                   >> blanks >>
   string "<struct>"                                                     >> blanks >> 
@@ -65,26 +28,63 @@ parseFIDE =
   string "<featureOrder userDefined=\"false\"/>" >> blanks >>  
   string "</featureModel>" >> blanks >> 
   return (FeatureModel ft [])
--}
+
 
 parseFeatureTree :: Parsec String () FeatureTree
 parseFeatureTree =
-  string  "<and mandatory=\"true\" name=\"" >> blanks >> 
-  many1 letter                              >>= \root -> blanks >>  
-  string "\">"                              >> blanks >>
-  string "</and>"                           >> blanks >> 
-  return (Node (Feature root BasicFeature Mandatory) []) 
+  parseFeature      >>= \root c -> blanks >>
+  parseFeatureLeafs >>= \leafs  -> blanks >>
+  --string "</and>"                                >> blanks >> 
+  return (Node root leafs) 
 
-blanks = many (space <|> newline) 
+ -- childs will be a feature list
+
+parseFeatureLeafs :: Parsec String () FeatureTree
+parseFeatureLeafs =
+  parseFeature  >>= \f childs ->
+    case childs of
+      True  -> Node f [ parseFeatureLeafs ] 
+      False -> Node f []
 
 
-parseFromFileLocal p fname = 
-  do
-    input <- readFile fname
-    return (runParser p () fname input)
--- parseFeatureType :: Parsec String () FeatureType
--- parseFeatureType =
---   many1 letter >>= \t ->
---   case t of
---     "and" -> return BasicType
---     "or"  -> return BasicType 
+parseFeature :: Parsec String () Feature
+parseFeature = 
+  char '<'                 >> blanks >>
+  parseFeatureGroup >>= \g -> blanks >>
+  parseFeatureType  >>= \t -> blanks >>
+  parseFeatureName  >>= \n -> blanks >>
+  string >>= \childs -> 
+    if childs == "/>" then
+      return Feature n g t
+    else
+      return [Feature n g t, parseFeature]
+  
+
+parseFeatureName :: Parsec String () String
+parseFeatureName =
+  string "name=\""  >> blanks >>
+  many1 letter     >>= \n -> char '"' >>
+  return n 
+
+
+parseFeatureGroup :: Parsec String () FeatureGroup
+parseFeatureGroup =
+  many1 letter >>= 
+    \g ->
+      case g of
+        "and"     -> return BasicFeature
+        "or"      -> return OrFeature
+        "alt"     -> return AltFeature
+        "feature" -> return BasicFeature
+
+
+parseFeatureType :: Parsec String () FeatureType 
+parseFeatureType = 
+  string "mandatory=\"" >> blanks
+  many1 letter >>= 
+    \t -> char '"' >> blanks >>
+      case t of 
+        "true"  -> Mandatory
+        "false" -> Optional
+
+
