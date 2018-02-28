@@ -2,8 +2,6 @@
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
 			<and mandatory="true" name="iris">
-
-
 				<and mandatory="true" name="services">
 					<feature mandatory="true" name="sendMessage"/>
 					<feature mandatory="true" name="receiveMessage"/>
@@ -16,7 +14,7 @@
 				<feature name="tagging"/>
 				<alt mandatory="true" name="ui">
 					<feature mandatory="true" name="console"/>
-					<feature mandatory="true" name="gui"/>
+					<feature abstract="true" mandatory="true" name="gui"/>
 				</alt>
 				<alt name="search">
 					<feature mandatory="true" name="simpleSearch"/>
@@ -30,6 +28,32 @@
 				</or>
 			</and>
 		</struct>
+		<constraints>
+			<rule>
+				<eq>
+					<var>sign</var>
+					<var>verify</var>
+				</eq>
+			</rule>
+			<rule>
+				<eq>
+					<var>encrypt</var>
+					<var>decrypt</var>
+				</eq>
+			</rule>
+			<rule>
+				<imp>
+					<var>advancedSearch</var>
+					<var>nonRelational</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>simpleSearch</var>
+					<var>relational</var>
+				</imp>
+			</rule>
+		</constraints>
 		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
 		<comments/>
 		<featureOrder userDefined="false"/>
