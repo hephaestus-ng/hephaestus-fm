@@ -30,22 +30,24 @@ parseFeatureIDE =
   return (FeatureModel ft [])
 
 
-parseFeatureTree :: Parsec String () FeatureTree
-parseFeatureTree =
-  parseFeature      >>= \root c -> blanks >>
-  parseFeatureLeafs >>= \leafs  -> blanks >>
-  --string "</and>"                                >> blanks >> 
-  return (Node root leafs) 
+--parseFeatureTree :: Parsec String () FeatureTree
+--parseFeatureTree =
+--  parseFeature      >>= \(root, cs) -> blanks >>
+  -- parseFeatureLeafs >>= \leafs      -> blanks >>
+  -- return (Node root leafs) 
 
  -- childs will be a feature list
 
-parseFeatureLeafs :: Parsec String () FeatureTree
-parseFeatureLeafs =
-  parseFeature  >>= \f childs ->
-    case childs of
-      True  -> Node f [ parseFeatureLeafs ] 
-      False -> Node f []
 
+--parseFeatureLeafs :: Parsec String () [Tree Feature]
+--parseFeatureLeafs =
+--  parseFeature  >>= \(f, cs) ->
+--    case cs of
+--      True  -> return Node f [ parseFeatureLeafs ] 
+--      False -> return Node f []
+
+parseFeatureTree :: Parsec String () FeatureTree
+parseFeatureTree = undefined
 
 parseFeature :: Parsec String () Feature
 parseFeature = 
@@ -53,11 +55,8 @@ parseFeature =
   parseFeatureGroup >>= \g -> blanks >>
   parseFeatureType  >>= \t -> blanks >>
   parseFeatureName  >>= \n -> blanks >>
-  string >>= \childs -> 
-    if childs == "/>" then
-      return Feature n g t
-    else
-      return [Feature n g t, parseFeature]
+  char '>'                 >> blanks >>
+  return (Feature n g t)
   
 
 parseFeatureName :: Parsec String () String
@@ -80,11 +79,11 @@ parseFeatureGroup =
 
 parseFeatureType :: Parsec String () FeatureType 
 parseFeatureType = 
-  string "mandatory=\"" >> blanks
+  string "mandatory=\"" >> blanks >>
   many1 letter >>= 
     \t -> char '"' >> blanks >>
       case t of 
-        "true"  -> Mandatory
-        "false" -> Optional
+        "true"  -> return Mandatory
+        "false" -> return Optional
 
 
