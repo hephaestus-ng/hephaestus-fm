@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+      <and mandatory="true" name="iris">
+  			<and mandatory="true" name="expressionProblem">
+          <feature mandatory="true" name="sendMessage"/>
+          <feature mandatory="true" name="receiveMessage"/>
+  			</and>
+        <feature name="addressBook"/>
+        <alt mandatory="true" name="persistence">
+          <feature mandatory="true" name="relational"/>
+          <feature mandatory="true" name="nonRelational"/>
+        </alt>
+      </and>
+		</struct>
+		<constraints>
+			<rule>
+				<eq>
+					<var>sign</var>
+					<var>verify</var>
+				</eq>
+			</rule>
+      <rule>
+				<eq>
+					<var>encrypt</var>
+					<var>decrypt</var>
+				</eq>
+			</rule>
+      <rule>
+				<imp>
+					<var>advancedSearch</var>
+					<var>nonRelational</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>simpleSearch</var>
+					<var>relational</var>
+				</imp>
+			</rule>
+		</constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
