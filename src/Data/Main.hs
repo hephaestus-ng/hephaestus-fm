@@ -8,7 +8,5 @@ import Data.FM.SAT
 import Data.FM.Utils
 
 
-
-
 main :: IO ()
 main = putStrLn "someFunc"

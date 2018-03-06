@@ -22,7 +22,11 @@ library
                        Data.FM.FeatureModel,
                        Data.FM.ProductConfiguration,
                        Data.FM.SAT,
-                       Data.FM.Utils
+                       Data.FM.Utils,
+                       Parser.XML.Main,
+                       Parser.XML.Constraints,
+                       Parser.XML.Struct,
+                       Parser.XML.Utils
   build-depends:       base >= 4.7 && < 5,
                        pretty-tree,
                        lens,
@@ -45,7 +49,8 @@ test-suite hephaestus-fm-test
                        Test.FM.FeatureTest,
                        Test.FM.TreeTest,
                        Test.FM.FeatureModelTest,
-                       Test.FM.ProductConfigurationTest
+                       Test.FM.ProductConfigurationTest,
+                       Test.Parser.XMLTest
   main-is:             Spec.hs
   build-depends:       base,
                        hephaestus-fm,

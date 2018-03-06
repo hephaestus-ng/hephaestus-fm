@@ -2,11 +2,11 @@
 	<featureModel chosenLayoutAlgorithm="1">
 		<struct>
       <and mandatory="true" name="iris">
-  			<and mandatory="true" name="expressionProblem">
+  			<or mandatory="true" name="expressionProblem">
           <feature mandatory="true" name="sendMessage"/>
           <feature mandatory="true" name="receiveMessage"/>
-  			</and>
-        <feature name="addressBook"/>
+  			</or>
+        <feature mandatory="false" name="addressBook"/>
         <alt mandatory="true" name="persistence">
           <feature mandatory="true" name="relational"/>
           <feature mandatory="true" name="nonRelational"/>
