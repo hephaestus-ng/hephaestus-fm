@@ -1,6 +1,5 @@
 module Test.FM.ProductConfigurationTest where
 
-
 import Data.FM.FeatureModel
 import Data.FM.ProductConfiguration
 import Data.FM.Expression
@@ -46,4 +45,5 @@ pcTests = TestList
         TestLabel "Product Configuration 2" test02,
         TestLabel "Product Configuration 3" test03
       ]
+
 runProductConfigurationTests = runTestTT pcTests

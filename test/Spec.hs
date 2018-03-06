@@ -3,6 +3,7 @@ import Test.FM.TreeTest
 import Test.FM.ExpressionTest
 import Test.FM.FeatureModelTest
 import Test.FM.ProductConfigurationTest
+-- import Test.Parser.XMLTest
 
 import Control.Monad
 import Test.HUnit.Base
@@ -13,4 +14,5 @@ main = do
     a    <- runFeatureTests
     b    <- runFeatureModelTests
     c    <- runProductConfigurationTests
-    return b
+    -- d    <- runXMLParserTests
+    return c
