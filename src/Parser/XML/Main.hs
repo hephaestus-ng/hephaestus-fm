@@ -13,7 +13,7 @@ import Parser.XML.Constraints
 import Parser.XML.Utils
 
 
-path = "/home/thi4go/Haskell/hephaestus-fm/test/Test/Parser/XML/fm.ide"
+path = "/home/thi4go/Haskell/hephaestus-fm/test/Test/Parser/fm.ide"
 
 
 main = parseFromFile parseFeatureIDE path >>= \result ->
