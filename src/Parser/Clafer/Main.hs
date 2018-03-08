@@ -38,7 +38,8 @@ parseFeatureTree =
 
 parseFeature :: Parsec String () FeatureTree
 parseFeature =
-  altFeature <|>
+  altFeature       <|>
+  childFeatureType <|>
   childFeature
 
 
@@ -52,11 +53,15 @@ altFeature =
 
 childFeature :: Parsec String () FeatureTree
 childFeature =
-  many1 letter >>= \n -> getInput >>= \i -> blanks >>
-  if i == '?' then
-    return (Node (Feature n BasicFeature Optional) [])
-  else
-    return (Node (Feature n BasicFeature Mandatory) [])
+  many1 letter >>= \n -> blanks >>
+  return (Node (Feature n BasicFeature Mandatory) [])
+
+childFeatureType :: Parsec String () FeatureTree
+childFeatureType =
+  many1 letter >>= \n -> space >>
+  try (char '?')      >> blanks >>
+  return (Node (Feature n BasicFeature Optional) [])
+
 
 
 -- isMandatory = try (char '?') <|>
