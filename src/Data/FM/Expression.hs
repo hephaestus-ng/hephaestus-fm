@@ -17,14 +17,6 @@ data FeatureExp = B Bool
   deriving(Show, Eq)
 
 
--- eval :: FeatureExp -> ProductConfiguration -> Bool
--- eval (B b) _            = b
--- eval (Ref s) pc         = s `elem` pc
--- eval (And exp1 exp2) pc = (eval exp1 pc) && (eval exp2 pc)
--- eval (Or exp1 exp2) pc  = (eval exp1 pc) || (eval exp2 pc)
--- eval (Not exp1) pc      = not (eval exp1 pc)
-
-
 
 featureTreeToExp :: FeatureTree -> [FeatureExp]
 featureTreeToExp (Node f [])     = []
