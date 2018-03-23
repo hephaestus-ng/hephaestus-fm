@@ -10,9 +10,11 @@ import Data.FM.FeatureModel
 
 type ProductConfiguration = [String]
 
+
 isValid :: FeatureModel -> ProductConfiguration -> Bool
 isValid fm pc = all (`isValidExp` pc) exps
   where exps = fmToFeatureExpr fm
+
 
 isValidExp :: FeatureExp -> ProductConfiguration -> Bool
 isValidExp (B b) pc        = b
