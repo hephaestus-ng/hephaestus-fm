@@ -1,4 +1,4 @@
-module Data.FM.ProductConfiguration(ProductConfiguration, isValid) where
+module Data.FM.ProductConfiguration(ProductConfiguration, isValid, isValidExp) where
 
 import Control.Lens
 import Data.Tree
