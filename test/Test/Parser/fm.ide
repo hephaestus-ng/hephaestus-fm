@@ -7,6 +7,10 @@
           <feature mandatory="true" name="receiveMessage"/>
   			</or>
         <feature mandatory="false" name="addressBook"/>
+				<alt name="search">
+					<feature mandatory="true" name="simpleSearch"/>
+					<feature mandatory="true" name="advancedSearch"/>
+				</alt>
         <alt mandatory="true" name="persistence">
           <feature mandatory="true" name="relational"/>
           <feature mandatory="true" name="nonRelational"/>
@@ -14,18 +18,6 @@
       </and>
 		</struct>
 		<constraints>
-			<rule>
-				<eq>
-					<var>sign</var>
-					<var>verify</var>
-				</eq>
-			</rule>
-      <rule>
-				<eq>
-					<var>encrypt</var>
-					<var>decrypt</var>
-				</eq>
-			</rule>
       <rule>
 				<imp>
 					<var>advancedSearch</var>

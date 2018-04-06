@@ -67,16 +67,21 @@ parseFeatureData =
 
 parseFeatureName :: Parsec String () String
 parseFeatureName =
-  string "name=\""  >> blanks >>
-  many1 letter     >>= \n -> char '"' >>
+  try (string "name=\"")  >> blanks >>
+  many1 letter >>= \n -> char '"' >>
   return n
 
 
 parseFeatureType :: Parsec String () FeatureType
 parseFeatureType =
-  string "mandatory=\"" >> blanks >>
-  many1 letter >>=
-    \t -> char '"' >> blanks >>
+  option (Optional) (
+    do
+      string "mandatory=\""
+      blanks
+      t <- many1 letter
+      char '"'
+      blanks
       case t of
         "true"  -> return Mandatory
         "false" -> return Optional
+  )
