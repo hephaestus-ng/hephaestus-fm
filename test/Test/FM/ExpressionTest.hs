@@ -2,9 +2,8 @@ module Test.FM.ExpressionTest where
 
 import Test.HUnit
 
+import Data.FM.Types
 import Data.FM.Expression
-import Data.FM.Feature
-import Data.FM.Tree
 import Data.Tree
 
 

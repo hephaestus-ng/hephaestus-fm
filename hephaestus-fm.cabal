@@ -1,66 +1,90 @@
-name:                hephaestus-fm
-version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/hephaestus-pl/hephaestus-fm#readme
-license:             BSD3
-license-file:        LICENSE
-author:              Rodrigo Bonifacio & Thiago Figueiredo
-maintainer:          thiagofigueiredo777@gmail.com
-copyright:           C&C
-category:            Web
-build-type:          Simple
-extra-source-files:  README.md
-cabal-version:       >=1.10
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: b28735505b56d6db96671b865c31d20424596f8fe2cdc50fba2625f01fe8b08b
 
-library
-  hs-source-dirs:      src
-  exposed-modules:     Lib,
-                       Data.FM.Feature,
-                       Data.FM.Tree,
-                       Data.FM.Expression,
-                       Data.FM.FeatureModel,
-                       Data.FM.ProductConfiguration,
-                       Data.FM.SAT,
-                       Data.FM.Utils,
-                       Parser.XML.Main,
-                       Parser.XML.Constraints,
-                       Parser.XML.Struct,
-                       Parser.XML.Utils
-  build-depends:       base >= 4.7 && < 5,
-                       pretty-tree,
-                       lens,
-                       containers,
-                       parsec
-  default-language:    Haskell2010
+name:           hephaestus-fm
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/hephaestus-ng/hephaestus-fm#readme>
+homepage:       https://github.com/hephaestus-ng/hephaestus-fm#readme
+bug-reports:    https://github.com/hephaestus-ng/hephaestus-fm/issues
+author:         Thiago Figueiredo
+maintainer:     thiagofigueiredo777@gmail.com
+copyright:      CC
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
 
-executable hephaestus-fm-exe
-  hs-source-dirs:      app
-  main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  build-depends:       base
-                     , hephaestus-fm
-  default-language:    Haskell2010
-
-test-suite hephaestus-fm-test
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
-  other-modules:       Test.FM.ExpressionTest,
-                       Test.FM.FeatureTest,
-                       Test.FM.TreeTest,
-                       Test.FM.FeatureModelTest,
-                       Test.FM.ProductConfigurationTest,
-                       Test.Parser.XMLTest
-  main-is:             Spec.hs
-  build-depends:       base,
-                       hephaestus-fm,
-                       lens,
-                       containers,
-                       parsec,
-                       HUnit
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  default-language:    Haskell2010
+extra-source-files:
+    README.md
 
 source-repository head
-  type:     git
-  location: https://github.com/hephaestus-pl/hephaestus-fm
+  type: git
+  location: https://github.com/hephaestus-ng/hephaestus-fm
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , containers
+    , lens
+    , parsec
+    , pretty-tree
+  exposed-modules:
+      Data.FM.Expression
+      Data.FM.ProductConfiguration
+      Data.FM.SAT
+      Data.FM.Types
+      Data.FM.Utils
+      Lib
+      Parser.Expression
+      Parser.XML.Constraints
+      Parser.XML.Main
+      Parser.XML.Struct
+      Parser.XML.Utils
+  other-modules:
+      Paths_hephaestus_fm
+  default-language: Haskell2010
+
+executable hephaestus-fm-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , containers
+    , hephaestus-fm
+    , lens
+    , parsec
+    , pretty-tree
+  other-modules:
+      Paths_hephaestus_fm
+  default-language: Haskell2010
+
+test-suite hephaestus-fm-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+    , base >=4.7 && <5
+    , containers
+    , hephaestus-fm
+    , lens
+    , parsec
+    , pretty-tree
+  other-modules:
+      Test.FM.ExpressionTest
+      Test.FM.FeatureModelTest
+      Test.FM.ProductConfigurationTest
+      Test.Parser.XMLTest
+      Paths_hephaestus_fm
+  default-language: Haskell2010

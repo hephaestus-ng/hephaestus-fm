@@ -3,8 +3,7 @@ module Parser.XML.Struct where
 import Data.Tree
 import Text.Parsec
 
-import Data.FM.Tree
-import Data.FM.Feature
+import Data.FM.Types
 
 import Parser.XML.Utils
 

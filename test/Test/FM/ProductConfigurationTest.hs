@@ -1,11 +1,7 @@
 module Test.FM.ProductConfigurationTest where
 
-import Data.FM.FeatureModel
+import Data.FM.Types
 import Data.FM.ProductConfiguration
-import Data.FM.Expression
-import Data.FM.Feature
-import Data.FM.Tree
-import Data.FM.SAT
 import Data.Tree
 
 import Test.HUnit

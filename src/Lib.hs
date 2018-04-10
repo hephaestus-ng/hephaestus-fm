@@ -1,9 +1,8 @@
 module Lib where
 
-import Data.FM.Feature
-import Data.FM.Tree
-import Data.FM.FeatureModel
+import Data.FM.Types
 import Data.FM.Expression
+import Data.FM.ProductConfiguration
 import Data.FM.SAT
 import Data.FM.Utils
 

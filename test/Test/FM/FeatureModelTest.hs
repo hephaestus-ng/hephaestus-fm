@@ -4,11 +4,8 @@ import Test.HUnit
 
 import Data.Tree
 
-import Data.FM.FeatureModel
-import Data.FM.ProductConfiguration
+import Data.FM.Types
 import Data.FM.Expression
-import Data.FM.Feature
-import Data.FM.Tree
 import Data.FM.SAT
 
 
@@ -46,8 +43,8 @@ ft04 = Node (Feature "iris" BasicFeature Mandatory) [
             ])
          ])
         ]
---
---
+
+
 -- Expressions
 
 ft01expr = fmToFeatureExpr $ FeatureModel ft01 []
@@ -71,8 +68,8 @@ test03expr = TestCase (assertEqual "FM03 Expressions test"
 
             Ref "iris"]) ft03expr)
 
---
---
+
+
 -- SAT Solver
 
 fm01 = FeatureModel ft01 []

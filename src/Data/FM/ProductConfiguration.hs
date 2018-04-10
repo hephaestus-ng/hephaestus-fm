@@ -1,14 +1,12 @@
-module Data.FM.ProductConfiguration(ProductConfiguration, isValid, isValidExp) where
+module Data.FM.ProductConfiguration
+  (isValid, isValidExp)
+where
 
 import Control.Lens
-import Data.Tree
+
+import Data.FM.Types
 import Data.FM.Expression
-import Data.FM.Feature
-import Data.FM.Tree
-import Data.FM.FeatureModel
 
-
-type ProductConfiguration = [String]
 
 isValid :: FeatureModel -> ProductConfiguration -> Bool
 isValid fm pc = all (`isValidExp` pc) exps
