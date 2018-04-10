@@ -3,6 +3,7 @@ module Parser.Expression where
 import Text.Parsec
 import Text.Parsec.String
 
+import Data.FM.Types
 import Data.FM.Expression
 
 

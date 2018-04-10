@@ -1,22 +1,12 @@
 module Data.FM.Expression where
 
--- Module to reason on feature model derivations in propositional logic expressions
-
 import Control.Lens
 import Data.Tree
 import Data.Tree.Lens
-import Data.FM.Tree
-import Data.FM.Feature
+import Data.FM.Types
 
 
-data FeatureExp = B Bool
-                | Ref String
-                | And FeatureExp FeatureExp
-                | Or FeatureExp FeatureExp
-                | Not FeatureExp
-  deriving(Show, Eq)
-
-
+-- Conversion functions
 
 featureTreeToExp :: FeatureTree -> [FeatureExp]
 featureTreeToExp (Node f [])     = []
@@ -38,6 +28,14 @@ convert parent child =
       Optional  -> Ref (view name child) .=> Ref (view name parent)
 
 
+fmToFeatureExpr :: FeatureModel -> [FeatureExp]
+fmToFeatureExpr fm =
+    featureTreeToExp (view featureTree fm) ++
+    (view expressions fm) ++
+    [Ref (view name $ view root $ view featureTree fm)]
+
+
+-- Operators
 
 (.=>) :: FeatureExp -> FeatureExp -> FeatureExp
 p .=> q = Or (Not p) q

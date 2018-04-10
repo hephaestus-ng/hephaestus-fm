@@ -5,7 +5,7 @@ import Control.Lens
 import Text.Parsec
 import Text.Parsec.String
 
-import Data.FM.FeatureModel
+import Data.FM.Types
 import Data.FM.Utils
 
 import Parser.XML.Struct

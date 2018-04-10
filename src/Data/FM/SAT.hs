@@ -2,10 +2,8 @@ module Data.FM.SAT (satSolver) where
 
 -- Module for SAT solving our FM propositional logic expressions
 
-import Data.FM.Feature
-import Data.FM.Tree
+import Data.FM.Types
 import Data.FM.Expression
-import Data.FM.FeatureModel
 
 import Control.Applicative ((<|>))
 
