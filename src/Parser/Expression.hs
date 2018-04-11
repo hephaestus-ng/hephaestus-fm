@@ -4,7 +4,6 @@ import Text.Parsec
 import Text.Parsec.String
 
 import Data.FM.Types
-import Data.FM.Expression
 
 
 parseExpression :: Parsec String () FeatureExp
@@ -43,4 +42,4 @@ parseExpFalse =
 
 parseExpRef :: Parsec String () FeatureExp
 parseExpRef =
-  letter >> many (alphaNum <|> space) >>= \r -> return (Ref r)
+  many1 (alphaNum <|> space) >>= \r -> return (Ref r)
