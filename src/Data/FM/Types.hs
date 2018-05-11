@@ -33,8 +33,26 @@ data FeatureExp = B Bool
                 | Not FeatureExp
   deriving(Show, Eq)
 
+
 data FeatureModel = FeatureModel {
     _featureTree :: FeatureTree,
     _expressions :: [FeatureExp]
 } deriving (Show, Eq)
 makeLenses ''FeatureModel
+
+
+-- class HasFeatureModel a where
+--   featureModel :: Lens' a FeatureModel
+--   featureTree  :: Lens' a FeatureTree
+--   expressions  :: Lens' a [FeatureExp]
+--
+-- instance HasFeatureModel FeatureModel where
+--   featureModel = id
+--   featureTree  =
+--     lens _featureTree (\fm ft -> fm { _featureTree = ft })
+--   expressions  =
+    -- lens _expressions (\fm exs -> fm { _expressions = exs })
+
+
+
+--

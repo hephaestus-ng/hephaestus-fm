@@ -40,7 +40,7 @@ library
       Data.FM.SAT
       Data.FM.Types
       Data.FM.Utils
-      Lib
+      Data.FM
       Parser.Expression
       Parser.XML.Constraints
       Parser.XML.Main
