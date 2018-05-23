@@ -42,4 +42,4 @@ parseExpFalse =
 
 parseExpRef :: Parsec String () FeatureExp
 parseExpRef =
-  many1 (alphaNum <|> space) >>= \r -> return (Ref r)
+  many1 (alphaNum) >>= \r -> many space >> return (Ref r)
