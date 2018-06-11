@@ -13,14 +13,6 @@ import Parser.XML.Constraints
 import Parser.XML.Utils
 
 
-path = "/home/thi4go/Haskell/hephaestus-fm/test/Test/Parser/fm.ide"
-
-
-main = parseFromFile parseFeatureIDE path >>= \result ->
-  case result of
-    Left err -> print err
-    Right fm -> (pprintFeatureTree (view featureTree fm))
-
 
 parseFeatureIDE :: Parsec String () FeatureModel
 parseFeatureIDE =
