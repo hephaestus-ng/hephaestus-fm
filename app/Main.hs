@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import Data.FM
 
 main :: IO ()
-main = someFunc
+main = undefined
